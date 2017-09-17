@@ -36,10 +36,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="infrastructure\__translator.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
     <Content Include="config.json">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="localization\main-pl-PL.json" />
+    <Content Include="localization\main-en-GB.json">
       <SubType>Code</SubType>
     </Content>
     <Content Include="public\favicon.ico" />
@@ -56,6 +61,7 @@
   <ItemGroup>
     <Folder Include="bin\" />
     <Folder Include="infrastructure\" />
+    <Folder Include="localization\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
@@ -72,6 +78,9 @@
     <Content Include="bin\node.cmd" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="infrastructure\test.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="public\javascripts\test.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>

@@ -7,6 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var lessMiddleware = require('less-middleware');
+var translator = require('./infrastructure/__translator');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -25,6 +26,12 @@ app.use(cookieParser());
 
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(translator({
+    defaultLang: 'en-GB'
+    , languages: ['pl-PL', 'en-GB']
+    , sourceDirectory: path.join(__dirname, 'localization')
+}));
 
 app.use(function (req, res, next) {
     console.log(123);
