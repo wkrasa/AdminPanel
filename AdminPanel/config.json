@@ -1,4 +1,10 @@
 ﻿{
   "username": "root32",
-  "password": "root3222"
+  "password": "root3222",
+  "database": {
+    "user": "admin",
+    "password": "admin",
+    "server": "localhost\\SQLEXPRESS",
+    "database": "AdminPanel"
+  }
 }

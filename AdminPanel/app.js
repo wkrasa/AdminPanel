@@ -7,7 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var lessMiddleware = require('less-middleware');
-var translator = require('./infrastructure/__translator');
+var translator = require('./infrastructure/translator');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

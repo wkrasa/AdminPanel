@@ -7,3 +7,7 @@ block content
   p {{text}}
   p #{message}
   p #{__('app-name')}
+
+  ul
+  each val in users 
+    li= val.Login

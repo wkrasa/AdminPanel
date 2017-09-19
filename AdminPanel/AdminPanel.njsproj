@@ -36,7 +36,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
-    <Compile Include="infrastructure\__translator.js" />
+    <Compile Include="infrastructure\services\usersSrv.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="infrastructure\translator.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
@@ -61,6 +64,7 @@
   <ItemGroup>
     <Folder Include="bin\" />
     <Folder Include="infrastructure\" />
+    <Folder Include="infrastructure\services\" />
     <Folder Include="localization\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
