@@ -1,6 +1,7 @@
 ﻿'use strict';
 var config = require('./config');
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -26,6 +27,13 @@ app.use(cookieParser());
 
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+    secret: config.session.secret,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { httpOnly: true, secure: false, maxAge: config.session.maxAge * 1000 }
+}))
 
 app.use(translator({
     defaultLang: 'en-GB'

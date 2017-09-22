@@ -1,6 +1,8 @@
 ﻿{
-  "username": "root32",
-  "password": "root3222",
+  "session" :{
+    "secret": "1234567890",
+    "maxAge": 3600
+  },
   "database": {
     "user": "admin",
     "password": "admin",

@@ -7,7 +7,8 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     usersSrv.getUsers(req, res, (data) => {
         res.locals.users = data;
-        res.render('index', { title: 'Express', message: req.query.message || 'test' });
+        req.session.views = req.session.views ? req.session.views + 1 : 1;
+        res.render('index', { title: 'Express', message: req.query.message || 'test', views: req.session.views });
     });    
 });
 
