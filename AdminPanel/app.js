@@ -3,8 +3,10 @@ var config = require('./config');
 var express = require('express');
 var session = require('express-session');
 var path = require('path');
+var fs = require('fs')
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var rfs = require('rotating-file-stream')
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var lessMiddleware = require('less-middleware');
@@ -14,6 +16,15 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+var logDirectory = path.join(__dirname, 'log')
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+var accessLogStream = rfs('access.log', {
+    interval: '1d', // rotate daily
+    path: logDirectory
+});
+
+app.use(logger('combined', { stream: accessLogStream }))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
