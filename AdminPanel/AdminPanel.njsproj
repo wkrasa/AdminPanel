@@ -36,11 +36,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="infrastructure\app-start\routes.js" />
+    <Compile Include="infrastructure\services\authSrv.js" />
+    <Compile Include="infrastructure\services\withTransaction.js" />
     <Compile Include="infrastructure\services\usersSrv.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="infrastructure\authenticate.js" />
     <Compile Include="infrastructure\translator.js" />
+    <Compile Include="public\app\admin-panel-app.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="public\app\users\users-list.js" />
+    <Compile Include="public\app\users\users-create.js" />
+    <Compile Include="public\app\users\users-module.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes\index.js" />
+    <Compile Include="routes\views.js" />
     <Compile Include="routes\users.js" />
     <Compile Include="bin\www" />
     <Content Include="config.json">
@@ -64,16 +77,22 @@
   <ItemGroup>
     <Folder Include="bin\" />
     <Folder Include="infrastructure\" />
+    <Folder Include="infrastructure\app-start\" />
     <Folder Include="infrastructure\services\" />
     <Folder Include="localization\" />
     <Folder Include="public\" />
+    <Folder Include="public\app\infrastructure\" />
+    <Folder Include="public\app\users\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
+    <Folder Include="public\app\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="views\" />
+    <Folder Include="views\users\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="views\users\list.pug" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config" />
     <Content Include="bin\ChangeConfig.ps1" />

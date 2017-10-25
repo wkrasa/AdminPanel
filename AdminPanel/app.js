@@ -11,9 +11,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var lessMiddleware = require('less-middleware');
 var translator = require('./infrastructure/translator');
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./infrastructure/app-start/routes');
 
 var app = express();
 
@@ -56,10 +54,8 @@ app.use(function (req, res, next) {
     console.log(123);
     next();
 });
-app.use('/', routes);
-app.use('/users', users);
 
-
+routes(app);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -69,7 +65,6 @@ app.use(function (req, res, next) {
 });
 
 // error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
@@ -91,9 +86,5 @@ app.use(function (err, req, res, next) {
         error: {}
     });
 });
-
-
-
-
 
 module.exports = app;
