@@ -5,7 +5,16 @@ html
     link(rel='stylesheet', href='/stylesheets/main.css')
     link(rel='stylesheet', href='/stylesheets/test.css')
    
-  body(ng-app)
-    block content
+  body(ng-app="adminPanelApp")
+    div(ng-controller="mainCtrl")
+        block content
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js")
     script(src="/javascripts/test.js")
-    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js")
+    script(src="/app/admin-panel-app.js")
+    script(src="/app/main-ctrl.js")
+    script(src="/app/users/users-module.js")
+    script(src="/app/users/users-list-ctrl.js")
+  
+  

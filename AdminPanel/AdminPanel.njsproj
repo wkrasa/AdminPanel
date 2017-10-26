@@ -47,8 +47,9 @@
     <Compile Include="public\app\admin-panel-app.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="public\app\users\users-list.js" />
-    <Compile Include="public\app\users\users-create.js" />
+    <Compile Include="public\app\main-ctrl.js" />
+    <Compile Include="public\app\users\users-list-ctrl.js" />
+    <Compile Include="public\app\users\users-create-ctrl.js" />
     <Compile Include="public\app\users\users-module.js">
       <SubType>Code</SubType>
     </Compile>

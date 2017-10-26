@@ -1,14 +1,17 @@
 ﻿extends layout
 
 block content
-  h1 #{__('app-name')}
-  p Welcome to #{title}
-  input(type="text", ng-model="text")
-  p {{text}}
-  p #{message}
-  p #{__('app-name')}
+    div(ng-controller="usersListCtrl")
+        h1 #{__('app-name')}
+        p Welcome to #{title}
+        p main: {{hello}}
+        p list: {{greeting}}
+        input(type="text", ng-model="text")
+        p {{text}}
+        p #{message}
+        p #{__('app-name')}
 
-  ul
-  each val in users 
-    li= val.Login
-  p views: #{views}
+        ul
+        each val in users 
+            li= val.Login
+        p views: #{views}
