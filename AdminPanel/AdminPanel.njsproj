@@ -53,6 +53,7 @@
     <Compile Include="public\app\users\users-module.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="routes\auth.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\views.js" />
     <Compile Include="routes\users.js" />
