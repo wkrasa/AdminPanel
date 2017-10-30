@@ -4,21 +4,23 @@
 //simpler solution: use session
 //- method for app.use, which sets user in current req
 //- method fr login, which set user in session
-var authenticate = function () {
-    var self = this;
-    self.login = function () {
-    };
+var authenticateSrv = {
+    login: function (req, userName) {
+        req.session.user = { name: userName };
+        //create cookie here
+    },
 
-    self.logout = function () {
-    };
+    logout: function () {
+        delete req.session.user;
+    },
 
-    self.sessionLogin(req, res, next){
+    sessionLogin: function (req, res, next) {
+        //if session has cookie, login user
         next();
-
     }
 }
 
-module.exports = authenticate;
+module.exports = authenticateSrv;
 
 
 

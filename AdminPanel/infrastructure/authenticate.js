@@ -2,7 +2,7 @@
 
 var authenticate = function (redirectUrl) {
     return function (req, res, next) {
-        if (req.user) {
+        if (req.session.user) {
             return next();
         }
         else {

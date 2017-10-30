@@ -47,6 +47,8 @@
     <Compile Include="public\app\admin-panel-app.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="public\app\auth\login-ctrl.js" />
+    <Compile Include="public\app\auth\auth-module.js" />
     <Compile Include="public\app\main-ctrl.js" />
     <Compile Include="public\app\users\users-list-ctrl.js" />
     <Compile Include="public\app\users\users-create-ctrl.js" />
@@ -67,11 +69,15 @@
     </Content>
     <Content Include="public\favicon.ico" />
     <Content Include="package.json" />
+    <Content Include="public\stylesheets\form.css" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="public\stylesheets\test.less">
       <SubType>Code</SubType>
     </Content>
     <Content Include="README.md" />
+    <Content Include="views\auth\login.pug" />
+    <Content Include="views\home\index.pug" />
+    <Content Include="views\menu.pug" />
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />
@@ -84,6 +90,7 @@
     <Folder Include="localization\" />
     <Folder Include="public\" />
     <Folder Include="public\app\infrastructure\" />
+    <Folder Include="public\app\auth\" />
     <Folder Include="public\app\users\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
@@ -91,10 +98,12 @@
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="views\" />
+    <Folder Include="views\home\" />
+    <Folder Include="views\auth\" />
     <Folder Include="views\users\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="views\users\list.pug" />
+    <Content Include="views\users\users-list.pug" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config" />
     <Content Include="bin\ChangeConfig.ps1" />

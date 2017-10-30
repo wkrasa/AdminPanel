@@ -10,7 +10,7 @@ var authenticate = require('../authenticate')('/');
 var init = function (app) {
     app.use('/', index);
     app.use('/users', authenticate, users);
-    app.use('/view', views);
+    app.use('/views', views);
     app.use('/auth', auth);
 }
 
