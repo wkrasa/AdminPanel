@@ -11,8 +11,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var lessMiddleware = require('less-middleware');
 var translator = require('./infrastructure/translator');
+var withTransaction = require('./infrastructure/withTransaction')(config.database);
 var routes = require('./infrastructure/app-start/routes');
-
+var sendRegister = require('./infrastructure/sendRegister');
 var app = express();
 
 var logDirectory = path.join(__dirname, 'log')
@@ -37,6 +38,16 @@ app.use(cookieParser());
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(sendRegister(function () {
+    console.log('sendRegister');
+}));
+
+app.use(sendRegister(function () {
+    console.log('sendRegister2');
+}));
+
+app.use(sendRegister(withTransaction.commitTransactction));
+
 app.use(session({
     secret: config.session.secret,
     resave: false,
@@ -50,12 +61,10 @@ app.use(translator({
     , sourceDirectory: path.join(__dirname, 'localization')
 }));
 
-app.use(function (req, res, next) {
-    console.log(123);
-    next();
-});
+app.use(withTransaction.open);
 
 routes(app);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

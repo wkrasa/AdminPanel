@@ -38,11 +38,12 @@
     <Compile Include="app.js" />
     <Compile Include="infrastructure\app-start\routes.js" />
     <Compile Include="infrastructure\services\authSrv.js" />
-    <Compile Include="infrastructure\services\withTransaction.js" />
     <Compile Include="infrastructure\services\usersSrv.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="infrastructure\authenticate.js" />
+    <Compile Include="infrastructure\sendRegister.js" />
+    <Compile Include="infrastructure\withTransaction.js" />
     <Compile Include="infrastructure\translator.js" />
     <Compile Include="public\app\admin-panel-app.js">
       <SubType>Code</SubType>

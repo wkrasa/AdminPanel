@@ -5,24 +5,16 @@ var config = require('../../config');
 
 var srv = {
     getUsers: function (req, res, next) {
-        sql.connect(config.database, function (err) {
-
+        var request = new sql.Request();
+        request.query('select * from Users', function (err, data) {
+            //sql.close();
             if (err) {
-                sql.close();
-                next(err);
-                return;
+                console.log(err);
             }
-            var request = new sql.Request();
-            request.query('select * from Users', function (err, data) {
-                sql.close();
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    next(data.recordset);
-                }
+            else {
+                next(data.recordset);
+            }
 
-            });
         });
     }
 };
